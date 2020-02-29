@@ -1,0 +1,11 @@
+parameters:
+    equal / just intone
+    black fade
+    sum or overlay
+
+presets:
+    chord
+    inversions
+
+to do:
+    shades of black

@@ -8,6 +8,7 @@
   <script src="canvas.js"></script>
   <script src="parameters.js"></script>
   <script src="piano.js"></script>
+  <script src="presets.js"></script>
   <title>Shape of Chords</title>
 </head>
 <body>
@@ -16,66 +17,69 @@
     <div class="upper">
       <div class="left" id="canvas-div">
       </div>
-      <div class="right">
+      <div class="right" onclick="onMenuClick();">
         <div class="menu" id="category-menu">
-          <input type="radio" name="category" id="note" />Note
-          <input type="radio" name="category" id="interval" />Interval
-          <input type="radio" name="category" id="triad" />Triad
-          <input type="radio" name="category" id="tetrad" />Tetrad
+          <input type="radio" name="category" value="note" />Note
+          <input type="radio" name="category" value="interval" />Interval
+          <input type="radio" name="category" value="triad" />Triad
+          <input type="radio" name="category" value="tetrad" />Tetrad
         </div>
         <div class="menu" id="note-menu">
           Note<br/>
-          <input type="radio" name="note" id="0"  />0 
-          <input type="radio" name="note" id="1"  />1 
-          <input type="radio" name="note" id="2"  />2 
-          <input type="radio" name="note" id="3"  />3 
-          <input type="radio" name="note" id="4"  />4 
-          <input type="radio" name="note" id="5"  />5 
-          <input type="radio" name="note" id="6"  />6 
-          <input type="radio" name="note" id="7"  />7 
-          <input type="radio" name="note" id="8"  />8 
-          <input type="radio" name="note" id="9"  />9 
-          <input type="radio" name="note" id="10" />10
-          <input type="radio" name="note" id="11" />11
-          <input type="radio" name="note" id="12" />12
+          <input type="radio" name="note" value="0"  />0 
+          <input type="radio" name="note" value="1"  />1 
+          <input type="radio" name="note" value="2"  />2 
+          <input type="radio" name="note" value="3"  />3 
+          <input type="radio" name="note" value="4"  />4 
+          <input type="radio" name="note" value="5"  />5 
+          <input type="radio" name="note" value="6"  />6 
+          <input type="radio" name="note" value="7"  />7 
+          <input type="radio" name="note" value="8"  />8 
+          <input type="radio" name="note" value="9"  />9 
+          <input type="radio" name="note" value="10" />10
+          <input type="radio" name="note" value="11" />11
+          <input type="radio" name="note" value="12" />12
         </div>
         <div class="menu" id="interval-menu">
           Interval<br/>
-          <input type="radio" name="interval" id="0"  />Unison         
-          <input type="radio" name="interval" id="1"  />Minor 2nd      
-          <input type="radio" name="interval" id="2"  />Major 2nd      
-          <input type="radio" name="interval" id="3"  />Minor 3rd      
-          <input type="radio" name="interval" id="4"  />Major 3rd      
-          <input type="radio" name="interval" id="5"  />Perfect 4th    
-          <input type="radio" name="interval" id="6"  />Dim 5th/Aug 4th
-          <input type="radio" name="interval" id="7"  />Perfect 5th    
-          <input type="radio" name="interval" id="8"  />Minor 6th      
-          <input type="radio" name="interval" id="9"  />Majot 6th      
-          <input type="radio" name="interval" id="10" />Minor 7th      
-          <input type="radio" name="interval" id="11" />Majot 7th      
-          <input type="radio" name="interval" id="12" />Octave         
+          <input type="radio" name="interval" value="0"  />Unison         
+          <input type="radio" name="interval" value="1"  />Minor 2nd      
+          <input type="radio" name="interval" value="2"  />Major 2nd      
+          <input type="radio" name="interval" value="3"  />Minor 3rd      
+          <input type="radio" name="interval" value="4"  />Major 3rd      
+          <input type="radio" name="interval" value="5"  />Perfect 4th    
+          <input type="radio" name="interval" value="6"  />Dim 5th/Aug 4th
+          <input type="radio" name="interval" value="7"  />Perfect 5th    
+          <input type="radio" name="interval" value="8"  />Minor 6th      
+          <input type="radio" name="interval" value="9"  />Majot 6th      
+          <input type="radio" name="interval" value="10" />Minor 7th      
+          <input type="radio" name="interval" value="11" />Majot 7th      
+          <input type="radio" name="interval" value="12" />Octave         
         </div>
         <div class="menu" id="triad-menu">
           Triad<br/>
-          <input type="radio" name="triad" id="maj" />Maj
-          <input type="radio" name="triad" id="min" />Min
-          <input type="radio" name="triad" id="aug" />Aug
-          <input type="radio" name="triad" id="dim" />Dim
+          <input type="radio" name="triad" value="maj" />Maj
+          <input type="radio" name="triad" value="min" />Min
+          <input type="radio" name="triad" value="aug" />Aug
+          <input type="radio" name="triad" value="dim" />Dim
         </div>
         <div class="menu" id="tetrad-menu">
           Tetrad<br/>
-          <input type="radio" name="tetrad" id="???" />???
+          <input type="radio" name="tetrad" value="???" />???
         </div>
         <div class="menu" id="negative-menu">
           Inversion<br/>
-          <input type="radio" name="negative" id="-1" />-1
-          <input type="radio" name="negative" id="+1" />+1
+          <input type="radio" name="negative" value="-1" />-1
+          <input type="radio" name="negative" value="+1" />+1
         </div>
         <div class="menu" id="inversion-menu">
           Inversion<br/>
-          <input type="radio" name="inversion" id="1" />First
-          <input type="radio" name="inversion" id="2" />Second
-          <input type="radio" name="inversion" id="3" />Third
+          <input type="radio" name="inversion" value="1" />First
+          <input type="radio" name="inversion" value="2" />Second
+          <input type="radio" name="inversion" value="3" />Third
+          <span id="4-inv">
+            <input type="radio" name="inversion" value="4" />Forth
+          </span>
         </div>
       </div>
     </div>

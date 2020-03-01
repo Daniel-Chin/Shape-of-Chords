@@ -18,7 +18,8 @@ const debug = () => {
 
 const userInteract = () => {
   document.getElementById('play-button').style.display = 'none';
-  document.getElementById('main').style.visibility= 'visible';
+  document.getElementById('main').style.visibility = 'visible';
+  onMenuClick();
   const head = document.getElementById('head');
   const p5Script = document.createElement('script');
   head.appendChild(p5Script);

@@ -8,7 +8,10 @@ function setup() {
 }
 
 function draw() {
-  canvas.draw();
+  handleAmpRotate();
+  for (let i = 0; i < parameters.trace_multi; i ++) {
+    canvas.draw();
+  }
 }
 
 const debug = () => {

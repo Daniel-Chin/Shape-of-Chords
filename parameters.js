@@ -3,6 +3,7 @@ const parameters = {
   stroke_decay: .005,
   justin: false,
   amp_rotate: false,
+  trace_multi: 4,
 };
 
 const getParaUI = (para_name) => (

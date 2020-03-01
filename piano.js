@@ -48,30 +48,30 @@ const piano = {
   },
 
   setActivation: (pitch, value, keep_canvas) => {
+    value = round(value);
     piano.activation[pitch] = value;
     const mySine = piano.sine[pitch];
     const freq = round(piano.pitchToFreq(pitch));
     piano.amp[pitch] = value * piano.freqEnergyPenalty(freq);
-    mySine.amp(piano.amp[pitch]);
-    if (value) {
-      mySine.freq(freq);
-      mySine.start();
-    } else {
-      mySine.stop();
-    }
     if (! keep_canvas) {
+      if (value) {
+        mySine.freq(freq);
+        mySine.amp(piano.amp[pitch]);
+        mySine.start();
+      } else {
+        mySine.stop();
+      }
       canvas.start();
     }
   },
 
   clearActivation: () => {
     for (let i = 0; i < 128; i ++) {
-      piano.setActivation(i, 0, true);
+      piano.setActivation(i, 0);
     }
-    canvas.start();
   }, 
 
   freqEnergyPenalty: (freq) => (
-    32.75 / freq
+    .3275 / freq
   ),
 }

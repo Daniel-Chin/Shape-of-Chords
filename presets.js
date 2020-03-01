@@ -1,3 +1,5 @@
+let category;
+
 const getSelected = (menu_name) => {
   const radio = document.querySelector(`input[name="${menu_name}"]:checked`);
   if (radio) {
@@ -12,7 +14,7 @@ const onMenuChange = () => {
     if (x) return 'block';
     return 'none';
   }
-  const category = getSelected('category');
+  category = getSelected('category');
   document.getElementById('note-menu').style.display = f(
     category === 'note'
   );
@@ -35,11 +37,11 @@ const onMenuChange = () => {
   document.getElementById('4-inv').style.display = 
     category === 'tetrad' ? 'inline-block' : 'none';
   if (category) {
-    usePreset(category, neg_or_inv);
+    usePreset(neg_or_inv);
   }
 };
 
-const usePreset = (category, neg_or_inv) => {
+const usePreset = (neg_or_inv) => {
   const chord = getSelected(category);
   if (chord === null) return;
   let negative; let inversion;
@@ -51,13 +53,16 @@ const usePreset = (category, neg_or_inv) => {
     if (isNaN(inversion)) return;
   }
   piano.clearActivation();
+  amp_rotate.keys = [60];
   switch (category) {
     case 'note':
-      piano.setActivation(60 + parseInt(chord) * negative, 1);
+      piano.setActivation(60 + parseInt(chord) * negative, 100);
       break;
     case 'interval':
-      piano.setActivation(60, 1);
-      piano.setActivation(60 + parseInt(chord) * negative, 1);
+      piano.setActivation(60, 100);
+      const other = 60 + parseInt(chord) * negative;
+      piano.setActivation(other, 100);
+      amp_rotate.keys.push(other);
       break;
     case 'triad':
       const triad = {
@@ -70,12 +75,30 @@ const usePreset = (category, neg_or_inv) => {
         inversion --;
         triad.unshift(triad.pop() - 12);
       }
-      piano.setActivation(60, 1);
+      piano.setActivation(60, 100);
       triad.forEach((offset) => {
-        piano.setActivation(60 + offset, 1);
+        piano.setActivation(60 + offset, 100);
+        amp_rotate.keys.push(60 + offset);
       });
       break;
     case 'tetrad':
       break;
   }
+};
+
+let amp_rotate = {
+  keys: [], 
+  progress: 0,
+};
+const handleAmpRotate = () => {
+  if (! parameters.amp_rotate) return;
+  const period = amp_rotate.keys.length;
+  amp_rotate.progress = (amp_rotate.progress + .003) % period;
+  const three_pillars = [-period, 0, +period].map((x) => (
+    x + amp_rotate.progress
+  ));
+  amp_rotate.keys.forEach((pitch, i) => {
+    const distance = min(three_pillars.map((pillar) => (abs(pillar - i))));
+    piano.setActivation(pitch, max(0, 1.3 - distance) * 100, true);
+  });
 };

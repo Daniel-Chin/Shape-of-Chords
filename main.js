@@ -19,7 +19,6 @@ const debug = () => {
 const userInteract = () => {
   document.getElementById('play-button').style.display = 'none';
   document.getElementById('main').style.visibility = 'visible';
-  onMenuClick();
   const head = document.getElementById('head');
   const p5Script = document.createElement('script');
   head.appendChild(p5Script);
@@ -30,7 +29,7 @@ const userInteract = () => {
       for (let i = 0; i < 128; i ++) {
         piano.sine.push(new p5.Oscillator('sine'));
       }
-      debug();
+      onMenuChange();
     };
     sound.src = 'p5.sound.min.js';
   };

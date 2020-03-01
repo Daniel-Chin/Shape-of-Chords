@@ -1,7 +1,7 @@
 parameters:
     equal / just intone
     black fade
-    sum or overlay
+//    sum or overlay
     amp rotate
 
 presets:

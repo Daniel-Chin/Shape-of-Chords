@@ -17,6 +17,7 @@ const piano = {
   ], 
 
   activation: new Array(128).fill(0),
+  amp: new Array(128).fill(0),
   sine: [],
 
   pitchToFreq: (pitch) => {
@@ -31,7 +32,12 @@ const piano = {
         offset += 12;
         octave --;
       }
-      let result = piano.C4 * piano.JUSTIN_ARRAY[offset];
+      let result = piano.C4;
+      if (offset > 0) {
+        result *= piano.JUSTIN_ARRAY[offset];
+      } else {
+        result /= piano.JUSTIN_ARRAY[- offset];
+      }
       if (octave !== 0){
         result *= 2 ** octave;
       }
@@ -44,9 +50,11 @@ const piano = {
   setActivation: (pitch, value, keep_canvas) => {
     piano.activation[pitch] = value;
     const mySine = piano.sine[pitch];
-    mySine.freq(round(piano.pitchToFreq(pitch)));
-    mySine.amp(value);
+    const freq = round(piano.pitchToFreq(pitch));
+    piano.amp[pitch] = value * piano.freqEnergyPenalty(freq);
+    mySine.amp(piano.amp[pitch]);
     if (value) {
+      mySine.freq(freq);
       mySine.start();
     } else {
       mySine.stop();
@@ -55,4 +63,15 @@ const piano = {
       canvas.start();
     }
   },
+
+  clearActivation: () => {
+    for (let i = 0; i < 128; i ++) {
+      piano.setActivation(i, 0, true);
+    }
+    canvas.start();
+  }, 
+
+  freqEnergyPenalty: (freq) => (
+    32.75 / freq
+  ),
 }

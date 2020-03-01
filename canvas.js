@@ -3,9 +3,9 @@ const canvas = {
     canvas.u += parameters.trace_speed;
     // if (hasEnded()) return;
 
-    let { v, total_activation } = piano.activation.reduce((acc, amp, pitch) => {
+    let { v, total_amp } = piano.amp.reduce((acc, amp, pitch) => {
       if (amp > 0) {
-        acc.total_activation += amp;
+        acc.total_amp += amp;
         acc.v += sin(
           canvas.u 
           * piano.pitchToFreq(pitch) 
@@ -13,15 +13,14 @@ const canvas = {
         ) * amp;
       }
       return acc;
-    }, { v: 0, total_activation: 0 });
-    v /= max(1, total_activation);
+    }, { v: 0, total_amp: 0 });
+    v /= max(1, total_amp);
 
     v *= width * .4;
     push();
     translate(width / 2, height / 2);
     const now = { x: v * cos(canvas.u), y: - v * sin(canvas.u) };
     if (canvas.last !== null) {
-      // stroke(getShade());
       stroke(0);
       line(canvas.last.x, canvas.last.y, now.x, now.y);
       canvas.clear_tick += parameters.stroke_decay;
@@ -41,12 +40,4 @@ const canvas = {
     canvas.last = null;
     canvas.clear_tick = 0;
   }, 
-
-  getShade: () => (
-    255 * (1 - canvas.u * parameters.stroke_decay)
-  ),
-
-  hasEnded: () => (
-    getShade() < 0
-  ),
 }

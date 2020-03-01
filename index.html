@@ -17,69 +17,95 @@
     <div class="upper">
       <div class="left" id="canvas-div">
       </div>
-      <div class="right" onclick="onMenuClick();">
+      <div class="right">
         <div class="menu" id="category-menu">
-          <input type="radio" name="category" value="note" />Note
-          <input type="radio" name="category" value="interval" />Interval
-          <input type="radio" name="category" value="triad" />Triad
-          <input type="radio" name="category" value="tetrad" />Tetrad
+          <input type="radio" onchange="onMenuChange();" name="category" value="note" />Note
+          <input type="radio" onchange="onMenuChange();" name="category" value="interval" checked />Interval
+          <input type="radio" onchange="onMenuChange();" name="category" value="triad" />Triad
+          <input type="radio" onchange="onMenuChange();" name="category" value="tetrad" />Tetrad
         </div>
         <div class="menu" id="note-menu">
-          Note<br/>
-          <input type="radio" name="note" value="0"  />0 
-          <input type="radio" name="note" value="1"  />1 
-          <input type="radio" name="note" value="2"  />2 
-          <input type="radio" name="note" value="3"  />3 
-          <input type="radio" name="note" value="4"  />4 
-          <input type="radio" name="note" value="5"  />5 
-          <input type="radio" name="note" value="6"  />6 
-          <input type="radio" name="note" value="7"  />7 
-          <input type="radio" name="note" value="8"  />8 
-          <input type="radio" name="note" value="9"  />9 
-          <input type="radio" name="note" value="10" />10
-          <input type="radio" name="note" value="11" />11
-          <input type="radio" name="note" value="12" />12
+          Note, in number of halfsteps<br/>
+          <input type="radio" onchange="onMenuChange();" name="note" value="0"  />0 
+          <input type="radio" onchange="onMenuChange();" name="note" value="1"  />1 
+          <input type="radio" onchange="onMenuChange();" name="note" value="2"  />2 
+          <input type="radio" onchange="onMenuChange();" name="note" value="3"  />3 
+          <input type="radio" onchange="onMenuChange();" name="note" value="4"  />4 
+          <input type="radio" onchange="onMenuChange();" name="note" value="5"  />5 
+          <input type="radio" onchange="onMenuChange();" name="note" value="6"  />6 
+          <input type="radio" onchange="onMenuChange();" name="note" value="7"  />7 
+          <input type="radio" onchange="onMenuChange();" name="note" value="8"  />8 
+          <input type="radio" onchange="onMenuChange();" name="note" value="9"  />9 
+          <input type="radio" onchange="onMenuChange();" name="note" value="10" />10
+          <input type="radio" onchange="onMenuChange();" name="note" value="11" />11
+          <input type="radio" onchange="onMenuChange();" name="note" value="12" />12
+          <input type="radio" onchange="onMenuChange();" name="note" value="24" />24
+          <input type="radio" onchange="onMenuChange();" name="note" value="36" />36
         </div>
         <div class="menu" id="interval-menu">
           Interval<br/>
-          <input type="radio" name="interval" value="0"  />Unison         
-          <input type="radio" name="interval" value="1"  />Minor 2nd      
-          <input type="radio" name="interval" value="2"  />Major 2nd      
-          <input type="radio" name="interval" value="3"  />Minor 3rd      
-          <input type="radio" name="interval" value="4"  />Major 3rd      
-          <input type="radio" name="interval" value="5"  />Perfect 4th    
-          <input type="radio" name="interval" value="6"  />Dim 5th/Aug 4th
-          <input type="radio" name="interval" value="7"  />Perfect 5th    
-          <input type="radio" name="interval" value="8"  />Minor 6th      
-          <input type="radio" name="interval" value="9"  />Majot 6th      
-          <input type="radio" name="interval" value="10" />Minor 7th      
-          <input type="radio" name="interval" value="11" />Majot 7th      
-          <input type="radio" name="interval" value="12" />Octave         
+          <input type="radio" onchange="onMenuChange();" name="interval" value="0"  />Unison         
+          <input type="radio" onchange="onMenuChange();" name="interval" value="1"  />Minor 2nd      
+          <input type="radio" onchange="onMenuChange();" name="interval" value="2"  />Major 2nd      
+          <input type="radio" onchange="onMenuChange();" name="interval" value="3"  />Minor 3rd      
+          <input type="radio" onchange="onMenuChange();" name="interval" value="4"  />Major 3rd      
+          <input type="radio" onchange="onMenuChange();" name="interval" value="5"  />Perfect 4th    
+          <input type="radio" onchange="onMenuChange();" name="interval" value="6"  />Dim 5th/Aug 4th
+          <input type="radio" onchange="onMenuChange();" name="interval" value="7" checked />Perfect 5th    
+          <input type="radio" onchange="onMenuChange();" name="interval" value="8"  />Minor 6th      
+          <input type="radio" onchange="onMenuChange();" name="interval" value="9"  />Majot 6th      
+          <input type="radio" onchange="onMenuChange();" name="interval" value="10" />Minor 7th      
+          <input type="radio" onchange="onMenuChange();" name="interval" value="11" />Majot 7th      
+          <input type="radio" onchange="onMenuChange();" name="interval" value="12" />Octave         
+          <input type="radio" onchange="onMenuChange();" name="interval" value="24" />Octave 2         
+          <input type="radio" onchange="onMenuChange();" name="interval" value="36" />Octave 3         
         </div>
         <div class="menu" id="triad-menu">
           Triad<br/>
-          <input type="radio" name="triad" value="maj" />Maj
-          <input type="radio" name="triad" value="min" />Min
-          <input type="radio" name="triad" value="aug" />Aug
-          <input type="radio" name="triad" value="dim" />Dim
+          <input type="radio" onchange="onMenuChange();" name="triad" value="maj" />Maj
+          <input type="radio" onchange="onMenuChange();" name="triad" value="min" />Min
+          <input type="radio" onchange="onMenuChange();" name="triad" value="aug" />Aug
+          <input type="radio" onchange="onMenuChange();" name="triad" value="dim" />Dim
         </div>
         <div class="menu" id="tetrad-menu">
           Tetrad<br/>
-          <input type="radio" name="tetrad" value="???" />???
+          <input type="radio" onchange="onMenuChange();" name="tetrad" value="???" />???
         </div>
         <div class="menu" id="negative-menu">
           Inversion<br/>
-          <input type="radio" name="negative" value="-1" />-1
-          <input type="radio" name="negative" value="+1" />+1
+          <input type="radio" onchange="onMenuChange();" name="negative" value="-1" />-1
+          <input type="radio" onchange="onMenuChange();" name="negative" value="+1" checked />+1
         </div>
         <div class="menu" id="inversion-menu">
           Inversion<br/>
-          <input type="radio" name="inversion" value="1" />First
-          <input type="radio" name="inversion" value="2" />Second
-          <input type="radio" name="inversion" value="3" />Third
+          <input type="radio" onchange="onMenuChange();" name="inversion" value="1" checked />First
+          <input type="radio" onchange="onMenuChange();" name="inversion" value="2" />Second
+          <input type="radio" onchange="onMenuChange();" name="inversion" value="3" />Third
           <span id="4-inv">
-            <input type="radio" name="inversion" value="4" />Forth
+            <input type="radio" onchange="onMenuChange();" name="inversion" value="4" />Forth
           </span>
+        </div>
+        <div class="menu" id="justin-para">
+          Tuning <br />
+          <input type="radio" onchange="onParaChange();" name="justin" value="false" checked />Equal temperament
+          <input type="radio" onchange="onParaChange();" name="justin" value="true" />Just intonation (relative to root)
+        </div>
+        <div class="menu" id="trace-para">
+          Trace speed <br />
+          <input type="radio" onchange="onParaChange();" name="trace" value="0.1" />.1
+          <input type="radio" onchange="onParaChange();" name="trace" value="0.2" checked />.2
+          <input type="radio" onchange="onParaChange();" name="trace" value="0.5" />.5
+        </div>
+        <div class="menu" id="decay-para">
+          Stroke decay <br />
+          <input type="radio" onchange="onParaChange();" name="decay" value="0.002" />.002
+          <input type="radio" onchange="onParaChange();" name="decay" value="0.005" checked />.005
+          <input type="radio" onchange="onParaChange();" name="decay" value="0.01" />.01
+        </div>
+        <div class="menu" id="rotate-para">
+          Amp rotation <br />
+          <input type="radio" onchange="onParaChange();" name="rotate" value="true" />On
+          <input type="radio" onchange="onParaChange();" name="rotate" value="false" checked />Off
         </div>
       </div>
     </div>

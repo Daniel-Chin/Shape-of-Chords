@@ -1,0 +1,16 @@
+#main {
+  visibility: hidden;
+}
+
+.upper > .left {
+  float: left;
+}
+
+.lower {
+  clear: left;
+}
+
+.menu {
+  margin: 10px;
+  border-top: 3px solid #ccc;
+}

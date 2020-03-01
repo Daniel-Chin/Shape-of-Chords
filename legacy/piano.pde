@@ -1,18 +1,19 @@
 Piano piano = new Piano(this);
 
-class Piano extends Layer {
+class Piano {
   static final float C4 = 261.6255653005986;
   float JUSTIN_ARRAY = new int[13];
 
   int[] activation = new int[128]; // 60 = C4
   SinOsc[] sine = new SinOsc[128];
+  Keyboard keyboard;
 
   Piano(PApplet pApp) {
-    super();
     for (int pitch = 0; pitch > 128; pitch ++) {
       sine[pitch] = new SinOsc(pApp);
       sine[pitch].stop();
     }
+    keyboard = new Keyboard();
     JUSTIN_ARRAY[0] = 1;
     JUSTIN_ARRAY[1] = 19/17;
     JUSTIN_ARRAY[2] = 9/8;
@@ -62,5 +63,21 @@ class Piano extends Layer {
     if (clear_canvas) {
       canvas.start();
     }
+  }
+}
+
+class Keyboard extends Layer {
+  class Key {
+    int x;
+    int width;
+  }
+  Key[] key;
+  Keyboard() {
+    super();
+    position.x = PADDING;
+    position.y = height * .8 + PADDING;
+    _size.x = width - 2 * PADDING;
+    _size.y = height * .2 - 2 * PADDING;
+
   }
 }

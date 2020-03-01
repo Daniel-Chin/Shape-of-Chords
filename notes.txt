@@ -2,10 +2,11 @@ parameters:
     equal / just intone
     black fade
     sum or overlay
+    amp rotate
 
 presets:
+    category
     chord
     inversions
 
 to do:
-    shades of black

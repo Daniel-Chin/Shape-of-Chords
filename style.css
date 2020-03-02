@@ -1,5 +1,27 @@
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#welcome {
+  padding: 0px 50px;
+}
+
+#play-button {
+  font-size: 24px;
+  background-color: mediumslateblue;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 5px 15px;
+  border-radius: 10px;
+  transition: .3s;
+} #play-button:hover {
+  transform: scale(1.1);
+  background-color: slateblue;
+}
+
 #main {
-  visibility: hidden;
+  display: none;
 }
 
 .upper > .left {

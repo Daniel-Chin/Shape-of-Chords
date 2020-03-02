@@ -1,6 +1,4 @@
 const buildPiano = (from, to) => {
-  from = from | (60 - 24);
-  to = to | (60 + 24);
   const keyboard = document.getElementById('keyboard');
   if (from % 12 !== 0) {
     console.error('Can only build a piano starting from a C.');

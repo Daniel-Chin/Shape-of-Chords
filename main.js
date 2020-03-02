@@ -20,8 +20,8 @@ const debug = () => {
 };
 
 const userInteract = () => {
-  document.getElementById('play-button').style.display = 'none';
-  document.getElementById('main').style.visibility = 'visible';
+  document.getElementById('welcome').style.display = 'none';
+  document.getElementById('main').style.display = 'block';
   const head = document.getElementById('head');
   const p5Script = document.createElement('script');
   head.appendChild(p5Script);
@@ -37,5 +37,13 @@ const userInteract = () => {
     sound.src = 'p5.sound.min.js';
   };
   p5Script.src = 'p5.min.js';
-  buildPiano();
+  if (window.innerWidth > 700) {
+    buildPiano(60 - 24, 60 + 24);
+  } else {
+    if (window.innerWidth > 380) {
+      buildPiano(60 - 12, 60 + 12);
+    } else {
+      buildPiano(60, 60 + 12);
+    }
+  }
 };

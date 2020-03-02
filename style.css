@@ -31,6 +31,8 @@ body {
 .lower {
   clear: left;
   padding: 10px;
+  height: 50px;
+  margin-bottom: 10px;
 }
 
 .menu {

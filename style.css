@@ -58,3 +58,7 @@ body {
   z-index: 1;
   position: relative;
 }
+
+.radio-span {
+  white-space: nowrap;
+}

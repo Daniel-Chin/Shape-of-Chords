@@ -1,7 +1,7 @@
 const PADDING = 20;
 
 function setup() {
-  const radius = windowHeight * .8;
+  const radius = min(windowHeight * .8, windowWidth);
   createCanvas(radius, radius)
     .parent('canvas-div');
   canvas.start();

@@ -69,8 +69,17 @@
           <input type="radio" onchange="onMenuChange();" name="triad" value="dim" />Dim
         </div>
         <div class="menu" id="tetrad-menu">
-          Tetrad<br/>
-          <input type="radio" onchange="onMenuChange();" name="tetrad" value="???" />???
+          Tetrad (and bigger bois)<br/>
+          <input type="radio" onchange="onMenuChange();" name="tetrad" value="7               " />7
+          <input type="radio" onchange="onMenuChange();" name="tetrad" value="Maj7            " />Maj7
+          <input type="radio" onchange="onMenuChange();" name="tetrad" value="Maj9            " />Maj9
+          <input type="radio" onchange="onMenuChange();" name="tetrad" value="Add2            " />Add2
+          <input type="radio" onchange="onMenuChange();" name="tetrad" value="MinAdd2         " />MinAdd2
+          <input type="radio" onchange="onMenuChange();" name="tetrad" value="11(omit3, omit5)" />B/C=11(omit3, omit5)
+          <input type="radio" onchange="onMenuChange();" name="tetrad" value="13              " />13
+          <input type="radio" onchange="onMenuChange();" name="tetrad" value="sus4            " />sus4
+          <input type="radio" onchange="onMenuChange();" name="tetrad" value="sus2            " />sus2
+          <input type="radio" onchange="onMenuChange();" name="tetrad" value="Maj13(#11)      " />Maj13(#11)
         </div>
         <div class="menu" id="negative-menu">
           Inversion<br/>
@@ -88,17 +97,18 @@
         </div>
         <div class="menu" id="justin-para">
           Tuning <br />
-          <input type="radio" onchange="onParaChange();" name="justin" value="false" checked />Equal temperament
-          <input type="radio" onchange="onParaChange();" name="justin" value="true" />Just intonation (relative to root)
+          <input type="radio" onchange="onParaChange();" name="justin" value="false" />Equal temperament
+          <input type="radio" onchange="onParaChange();" name="justin" value="true" checked />Just intonation (relative to root)
         </div>
         <div class="menu" id="trace-para">
           Trace speed <br />
           <input type="radio" onchange="onParaChange();" name="trace" value="0.1" />.1
-          <input type="radio" onchange="onParaChange();" name="trace" value="0.2" checked />.2
-          <input type="radio" onchange="onParaChange();" name="trace" value="0.5" />.5
+          <input type="radio" onchange="onParaChange();" name="trace" value="0.2097" checked />.2097
+          <input type="radio" onchange="onParaChange();" name="trace" value="0.5234" />.5234
         </div>
         <div class="menu" id="decay-para">
           Stroke decay <br />
+          <input type="radio" onchange="onParaChange();" name="decay" value="0" />0
           <input type="radio" onchange="onParaChange();" name="decay" value="0.002" />.002
           <input type="radio" onchange="onParaChange();" name="decay" value="0.005" checked />.005
           <input type="radio" onchange="onParaChange();" name="decay" value="0.01" />.01

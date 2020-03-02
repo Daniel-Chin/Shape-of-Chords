@@ -32,7 +32,8 @@ const onMenuChange = () => {
     category && neg_or_inv
   );
   document.getElementById('inversion-menu').style.display = f(
-    category && ! neg_or_inv
+    // category && ! neg_or_inv
+    category === 'triad'
   );
   document.getElementById('4-inv').style.display = 
     category === 'tetrad' ? 'inline-block' : 'none';
@@ -82,6 +83,23 @@ const usePreset = (neg_or_inv) => {
       });
       break;
     case 'tetrad':
+      const tetrad = {
+        "7               ": [4, 7, 10], 
+        "Maj7            ": [4, 7, 11], 
+        "Maj9            ": [4, 7, 11, 14], 
+        "Add2            ": [2, 4, 7], 
+        "MinAdd2         ": [2, 3, 7], 
+        "11(omit3, omit5)": [10, 14, 17], 
+        "13              ": [4, 10, 21], 
+        "sus4            ": [5, 7], 
+        "sus2            ": [2, 7], 
+        "Maj13(#11)      ": [4, 7, 11, 14, 18, 21], 
+      }[chord];
+      piano.setActivation(60, 100);
+      tetrad.forEach((offset) => {
+        piano.setActivation(60 + offset, 100);
+        amp_rotate.keys.push(60 + offset);
+      });
       break;
   }
 };

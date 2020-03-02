@@ -1,7 +1,7 @@
 const parameters = {
-  trace_speed: .2,
+  trace_speed: .2097,
   stroke_decay: .005,
-  justin: false,
+  justin: true,
   amp_rotate: false,
   trace_multi: 4,
 };

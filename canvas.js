@@ -14,7 +14,9 @@ const canvas = {
       }
       return acc;
     }, { v: 0, total_amp: 0 });
-    v /= total_amp;
+    if (total_amp !== 0) {
+      v /= total_amp;
+    }
 
     v *= width * .4;
     push();

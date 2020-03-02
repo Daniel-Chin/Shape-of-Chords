@@ -63,6 +63,22 @@ const piano = {
       }
       canvas.start();
     }
+    const keyboardKey = document.getElementById(`key-${pitch}`);
+    if (keyboardKey) {
+      let original_height;
+      if (keyboardKey.classList.contains('white-key')) {
+        original_height = 50;
+      } else {
+        original_height = 30;
+      }
+      if (value) {
+        keyboardKey.style.backgroundColor = 'cyan';
+        keyboardKey.style.height = `${ceil(original_height * value / 100)}px`;
+      } else {
+        keyboardKey.style.backgroundColor = null;
+        keyboardKey.style.height = `${original_height}px`;
+      }
+    }
   },
 
   clearActivation: () => {

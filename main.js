@@ -37,4 +37,5 @@ const userInteract = () => {
     sound.src = 'p5.sound.min.js';
   };
   p5Script.src = 'p5.min.js';
+  buildPiano();
 };

@@ -8,9 +8,29 @@
 
 .lower {
   clear: left;
+  padding: 10px;
 }
 
 .menu {
   margin: 10px;
   border-top: 3px solid #ccc;
+}
+
+.white-key {
+  width: 8px;
+  height: 50px;
+  border: 1px solid black;
+  float: left;
+  transform: scaleX(2.6);
+  z-index: 0;
+  position: relative;
+}
+
+.black-key {
+  width: 13px;
+  height: 30px;
+  background-color: black;
+  float: left;
+  z-index: 1;
+  position: relative;
 }

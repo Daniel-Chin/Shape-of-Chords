@@ -22,8 +22,7 @@
         <div class="menu" id="category-menu">
           <input type="radio" onchange="onMenuChange();" name="category" value="note" />Note
           <input type="radio" onchange="onMenuChange();" name="category" value="interval" checked />Interval
-          <input type="radio" onchange="onMenuChange();" name="category" value="triad" />Triad
-          <input type="radio" onchange="onMenuChange();" name="category" value="tetrad" />Tetrad
+          <input type="radio" onchange="onMenuChange();" name="category" value="chord" />Chord
         </div>
         <div class="menu" id="note-menu">
           Note, in number of halfsteps<br/>
@@ -61,25 +60,23 @@
           <input type="radio" onchange="onMenuChange();" name="interval" value="24" />Octave 2         
           <input type="radio" onchange="onMenuChange();" name="interval" value="36" />Octave 3         
         </div>
-        <div class="menu" id="triad-menu">
-          Triad<br/>
-          <input type="radio" onchange="onMenuChange();" name="triad" value="maj" />Maj
-          <input type="radio" onchange="onMenuChange();" name="triad" value="min" />Min
-          <input type="radio" onchange="onMenuChange();" name="triad" value="aug" />Aug
-          <input type="radio" onchange="onMenuChange();" name="triad" value="dim" />Dim
-        </div>
-        <div class="menu" id="tetrad-menu">
-          Tetrad (and bigger bois)<br/>
-          <input type="radio" onchange="onMenuChange();" name="tetrad" value="7               " />7
-          <input type="radio" onchange="onMenuChange();" name="tetrad" value="Maj7            " />Maj7
-          <input type="radio" onchange="onMenuChange();" name="tetrad" value="Maj9            " />Maj9
-          <input type="radio" onchange="onMenuChange();" name="tetrad" value="Add2            " />Add2
-          <input type="radio" onchange="onMenuChange();" name="tetrad" value="MinAdd2         " />MinAdd2
-          <input type="radio" onchange="onMenuChange();" name="tetrad" value="11(omit3, omit5)" />B/C=11(omit3, omit5)
-          <input type="radio" onchange="onMenuChange();" name="tetrad" value="13              " />13
-          <input type="radio" onchange="onMenuChange();" name="tetrad" value="sus4            " />sus4
-          <input type="radio" onchange="onMenuChange();" name="tetrad" value="sus2            " />sus2
-          <input type="radio" onchange="onMenuChange();" name="tetrad" value="Maj13(#11)      " />Maj13(#11)
+        <div class="menu" id="chord-menu">
+          Chord<br/>
+          <input type="radio" onchange="onMenuChange();" name="chord" value="maj" />Maj
+          <input type="radio" onchange="onMenuChange();" name="chord" value="min" />Min
+          <input type="radio" onchange="onMenuChange();" name="chord" value="aug" />Aug
+          <input type="radio" onchange="onMenuChange();" name="chord" value="dim" />Dim
+          <br />
+          <input type="radio" onchange="onMenuChange();" name="chord" value="7               " />7
+          <input type="radio" onchange="onMenuChange();" name="chord" value="Maj7            " />Maj7
+          <input type="radio" onchange="onMenuChange();" name="chord" value="Maj9            " />Maj9
+          <input type="radio" onchange="onMenuChange();" name="chord" value="Add2            " />Add2
+          <input type="radio" onchange="onMenuChange();" name="chord" value="MinAdd2         " />MinAdd2
+          <input type="radio" onchange="onMenuChange();" name="chord" value="11(omit3, omit5)" />B/C=11(omit3, omit5)
+          <input type="radio" onchange="onMenuChange();" name="chord" value="13              " />13
+          <input type="radio" onchange="onMenuChange();" name="chord" value="sus4            " />sus4
+          <input type="radio" onchange="onMenuChange();" name="chord" value="sus2            " />sus2
+          <input type="radio" onchange="onMenuChange();" name="chord" value="Maj13(#11)      " />Maj13(#11)
         </div>
         <div class="menu" id="negative-menu">
           Inversion<br/>
@@ -91,9 +88,6 @@
           <input type="radio" onchange="onMenuChange();" name="inversion" value="1" checked />First
           <input type="radio" onchange="onMenuChange();" name="inversion" value="2" />Second
           <input type="radio" onchange="onMenuChange();" name="inversion" value="3" />Third
-          <span id="4-inv">
-            <input type="radio" onchange="onMenuChange();" name="inversion" value="4" />Forth
-          </span>
         </div>
         <div class="menu" id="justin-para">
           Tuning <br />

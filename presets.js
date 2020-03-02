@@ -21,37 +21,31 @@ const onMenuChange = () => {
   document.getElementById('interval-menu').style.display = f(
     category === 'interval'
   );
-  document.getElementById('triad-menu').style.display = f(
-    category === 'triad'
+  const is_chord = category === 'chord';
+  document.getElementById('chord-menu').style.display = f(
+    is_chord
   );
-  document.getElementById('tetrad-menu').style.display = f(
-    category === 'tetrad'
-  );
-  const neg_or_inv = ['note', 'interval'].includes(category);
   document.getElementById('negative-menu').style.display = f(
-    category && neg_or_inv
+    category && ! is_chord
   );
   document.getElementById('inversion-menu').style.display = f(
-    // category && ! neg_or_inv
-    category === 'triad'
+    is_chord
   );
-  document.getElementById('4-inv').style.display = 
-    category === 'tetrad' ? 'inline-block' : 'none';
   if (category) {
-    usePreset(neg_or_inv);
+    usePreset(is_chord);
   }
 };
 
-const usePreset = (neg_or_inv) => {
+const usePreset = (is_chord) => {
   const chord = getSelected(category);
   if (chord === null) return;
   let negative; let inversion;
-  if (neg_or_inv) {
-    negative = parseInt(getSelected('negative'));
-    if (isNaN(negative)) return;
-  } else {
+  if (is_chord) {
     inversion = parseInt(getSelected('inversion'));
     if (isNaN(inversion)) return;
+  } else {
+    negative = parseInt(getSelected('negative'));
+    if (isNaN(negative)) return;
   }
   piano.clearActivation();
   amp_rotate.keys = [60];
@@ -65,25 +59,12 @@ const usePreset = (neg_or_inv) => {
       piano.setActivation(other, 100);
       amp_rotate.keys.push(other);
       break;
-    case 'triad':
-      const triad = {
+    case 'chord':
+      const components = {
         maj: [4, 7], 
         min: [3, 7], 
         aug: [4, 8], 
         dim: [3, 6], 
-      }[chord];
-      while (inversion > 1) {
-        inversion --;
-        triad.unshift(triad.pop() - 12);
-      }
-      piano.setActivation(60, 100);
-      triad.forEach((offset) => {
-        piano.setActivation(60 + offset, 100);
-        amp_rotate.keys.push(60 + offset);
-      });
-      break;
-    case 'tetrad':
-      const tetrad = {
         "7               ": [4, 7, 10], 
         "Maj7            ": [4, 7, 11], 
         "Maj9            ": [4, 7, 11, 14], 
@@ -95,8 +76,12 @@ const usePreset = (neg_or_inv) => {
         "sus2            ": [2, 7], 
         "Maj13(#11)      ": [4, 7, 11, 14, 18, 21], 
       }[chord];
+      while (inversion > 1) {
+        inversion --;
+        components.unshift(components.pop() - 12);
+      }
       piano.setActivation(60, 100);
-      tetrad.forEach((offset) => {
+      components.forEach((offset) => {
         piano.setActivation(60 + offset, 100);
         amp_rotate.keys.push(60 + offset);
       });

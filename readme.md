@@ -2,4 +2,4 @@
 
 Visualize chords on the complex plane using Fourier transform at root frequency.  
 
-Visit demo: https://upbeat-volhard-31fdb8.netlify.com/  
+Visit demo: https://upbeat-volhard-31fdb8.netlify.app/  
